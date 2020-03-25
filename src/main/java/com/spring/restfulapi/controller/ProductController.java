@@ -30,12 +30,12 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/findProductById/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
-    public Product findProductById(@PathVariable int id){
+    public Product findProductById(@PathVariable("id") int id){
         return productService.getProductById(id);
     }
 
     @RequestMapping(value = "/findProductByName/{name}", method = RequestMethod.GET, headers = "Accept=application/json")
-    public Product findProductByName(@PathVariable String name){
+    public Product findProductByName(@PathVariable("name") String name){
         return productService.getProductByName(name);
     }
 
@@ -45,7 +45,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-    public String deleteProduct(@PathVariable int id){
+    public String deleteProduct(@PathVariable("id") int id){
         return productService.deleteProduct(id);
     }
 }
