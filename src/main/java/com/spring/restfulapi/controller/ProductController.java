@@ -11,8 +11,12 @@ import java.util.List;
 @RequestMapping(value = "/product")
 public class ProductController {
 
+    private final ProductService productService;
+
     @Autowired
-    ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @RequestMapping(value = "/addProduct", method = RequestMethod.POST, headers = "Accept=application/json")
     public Product addProduct(@RequestBody Product product){
